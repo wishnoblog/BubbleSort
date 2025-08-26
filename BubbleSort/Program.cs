@@ -4,24 +4,26 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-            int[] input = new[] { 10, 90, 20, 15, 80, 70, 60, 50,-5,-9,182,2245,10,7,578,521,023574 };
+            Console.WriteLine("泡泡排序法");
+            int[] input = new[] { 10, 90, -20, 1, 80, 170, 60, 50,-5,-9 };
             Console.WriteLine($"input length = {input.Length}");
+
+            //印出排序前資料
             Console.WriteLine($"input before sort");
             for (int i = 0; i < input.Length; i++)
             {
                 Console.Write($"[{input[i]}] ");
             }
+            Console.WriteLine($"\r\nSTART Sort");
             //進行排序
             var afterSort = Sort(input);
-            //排序結果
+
+            //印出排序結果
             Console.WriteLine($"\r\n input after sort");
             for (int i = 0; i < input.Length; i++)
             {
                 Console.Write($"[{afterSort[i]}] ");
             }
-
-
         }
 
         /// <summary>
@@ -41,13 +43,16 @@
                         int temp = input[i];
                         input[i] = input[j];
                         input[j] = temp;
+                        //上面那段可以寫成  (input[i], input[j]) = (input[j], input[i]);
                     }
                 }
-                Console.Write($"\r\n i={i} ");
+                //輸出每輪排序後結果
+                Console.Write($" i={i} ");
                 for (int k = 0; k < input.Length; k++)
                 {
                     Console.Write($"[{input[k]}] ");
                 }
+                Console.Write($"\r\n");
             }
 
             return input;
